@@ -13,7 +13,7 @@ exports.config = {
   output: './output',
   helpers: {
     Playwright: {
-      video: true,
+      video: false,
       trace: false,
       url: 'http://localhost',
       waitForTimeout: 5000,
@@ -40,7 +40,7 @@ exports.config = {
       apiKey:  process.env.TESTOMATIO,
     },
     screenshotOnFail: {
-      enabled: true
+      enabled: false
     }
   },
   bootstrap: null,
