@@ -1,0 +1,15 @@
+.env
+.vscode
+node_modules/
+
+# Output of 'npm pack'
+*.tgz
+output/
+
+# Env files
+.env-example
+.env
+.env-example2
+
+# package-lock file
+package-lock.json
