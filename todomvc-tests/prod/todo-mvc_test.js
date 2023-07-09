@@ -1,4 +1,4 @@
-Feature('codepress demo @smoke-2')
+Feature('codepress demo @smoke-2 @S247c7ea8')
 
 Before(async ({ I }) => {
   I.amOnPage('http://todomvc.com/examples/angularjs/#/')
@@ -18,7 +18,7 @@ Before(async ({ I }) => {
   I.refreshPage()
 })
 
-Scenario('Create some todo items @smoke', async ({ I }) => {
+Scenario('Create some todo items @smoke @Tbec8d62c', async ({ I }) => {
   I.say('When I focus the todo field')
   I.waitForText('AngularJS')
 })

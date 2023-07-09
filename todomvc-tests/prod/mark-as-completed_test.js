@@ -1,4 +1,4 @@
-Feature('Mark as completed/not completed @smoke-1')
+Feature('Mark as completed/not completed @smoke-1 @S7ea37a9b')
 
 Before(async ({ I, TodosPage }) => {
     TodosPage.goto()
@@ -14,7 +14,7 @@ BeforeSuite(({ I }) => {
   console.log("Test hoooks prod");
 });
 
-Scenario('Mark todos as completed', async ({ I, TodosPage }) => {
+Scenario('Mark todos as completed @Ta966c815', async ({ I, TodosPage }) => {
   I.say('Given I have some todos')
 
   I.say('When I mark the first one as completed')
@@ -32,7 +32,7 @@ Scenario('Mark todos as completed', async ({ I, TodosPage }) => {
 })
 
 
-Scenario('Unmark completed todos', async ({ I, TodosPage }) => {
+Scenario('Unmark completed todos @T8a6261d2', async ({ I, TodosPage }) => {
     I.say('Given I have some todos')
   
     I.say('And I mark the first one as completed')
@@ -48,7 +48,7 @@ Scenario('Unmark completed todos', async ({ I, TodosPage }) => {
     I.saveScreenshot('unmark-todos-as-completed.png')
 })
   
-Scenario('Mark all todos as completed', async ({ I, TodosPage }) => {
+Scenario('Mark all todos as completed @T4e211a3d', async ({ I, TodosPage }) => {
     I.say('Given I have some todos')
   
     I.say('When I mark them all as completed')
@@ -61,7 +61,7 @@ Scenario('Mark all todos as completed', async ({ I, TodosPage }) => {
     I.saveScreenshot('mark-all-todos-as-completed.png')
 })
 
-Scenario('Clear completed todos', async ({ I, TodosPage }) => {
+Scenario('Clear completed todos @T3fcb1cf5', async ({ I, TodosPage }) => {
     I.say('Given I have some completed todos') 
     TodosPage.markAllAsCompleted()
   
