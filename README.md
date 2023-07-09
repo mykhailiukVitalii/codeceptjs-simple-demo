@@ -18,6 +18,12 @@ npm i
 
 This will install codeceptjs & Testomat.io reporter
 
+If you need to run only PROD case - use the following command:
+
+```
+jenkins_JOB_ENV=prod npx codeceptjs run
+```
+
 ## Loading Tests to Testomat.io
 
 1. Create empty project in Testomat.io
