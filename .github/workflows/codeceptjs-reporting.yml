@@ -5,7 +5,7 @@ name: CodeceptJS example reporting results
 
 on:
   schedule:
-    - cron: "0 8 */5 * *"
+    - cron: "0 8 * * *"
 
 jobs:
   reporting:
@@ -23,10 +23,22 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Dependencies installing
         run: npm ci
-      - name: execute tests
+      - name: Test executing
+        id: test-incorrect
         continue-on-error: true
-        run: npx codeceptjs run
+        run: |
+          npx codeceptjs run > test-results.txt
+          fail_tests=$(grep -oP '^\d+ failed' test-results.txt | grep -oP '\d+')
+          echo "Number of failed tests: $fail_tests"
+          if [ "$fail_tests" -gt 1 ]; then
+            echo "More than 1 failed tests. Exiting with error."
+            exit 1
+          fi
         env:
           TESTOMATIO: "${{ secrets.TESTOMATIO }}"
           TESTOMATIO_URL: "${{ secrets.TESTOMATIO_URL }}"
           CODECEPT_GROUP_TESTS: "${{ secrets.CODECEPT_GROUP_TESTS }}"
+      - name: Invert success and failure
+        run: echo ${{ steps.test-incorrect.outcome }}
+
+#run: if [[ ${{ steps.test-incorrect.outcome }} == "failure" ]]; then exit 0; else exit 1; fi
