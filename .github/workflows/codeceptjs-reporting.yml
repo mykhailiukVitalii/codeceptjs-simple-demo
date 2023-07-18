@@ -5,7 +5,7 @@ name: CodeceptJS example reporting
 
 on:
   schedule:
-    - cron: "*/20 * * * *"
+    - cron: "*/15 * * * *"
 
 jobs:
   reporting:
@@ -17,14 +17,11 @@ jobs:
 
     steps:
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: Dependencies installing
-        run: npm i
-      - name: Generate unique run value
-        id: generate-run
-        run: echo "::set-output name=run_value::$(date +%s)"
+        run: npm ci
       - run: npx codeceptjs run
         env:
           TESTOMATIO: "${{ secrets.TESTOMATIO }}"
