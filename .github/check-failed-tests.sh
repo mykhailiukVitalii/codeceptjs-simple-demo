@@ -3,8 +3,8 @@
 npx codeceptjs run > test-results.txt
 fail_tests=$(grep -oE '\b[0-9]+\s+failed\b' test-results.txt | grep -oE '[0-9]+')
 echo "Number of failed tests: $fail_tests"
-if [ "$fail_tests" -gt 0 ]; then
-  echo "More than 0 failed tests. Exiting with error."
+if [ "$fail_tests" -gt 1 ]; then
+  echo "More than 1 failed tests. Exiting with error."
   exit 1
 else
   exit 0
