@@ -31,7 +31,3 @@ jobs:
           TESTOMATIO: "${{ secrets.TESTOMATIO }}"
           TESTOMATIO_URL: "${{ secrets.TESTOMATIO_URL }}"
           CODECEPT_GROUP_TESTS: "${{ secrets.CODECEPT_GROUP_TESTS }}"
-      - name: Invert success and failure
-        run: echo ${{ steps.test-incorrect.outcome }}
-
-#run: if [[ ${{ steps.test-incorrect.outcome }} == "failure" ]]; then exit 0; else exit 1; fi
