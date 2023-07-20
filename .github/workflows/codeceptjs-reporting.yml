@@ -20,15 +20,13 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Switch branch
-        run: cd codeceptJS
-      - name: Dependencies installing
-        run: npm i
-      - name: Test executing
-        id: test-incorrect
+          node-version: ${{ matrix.node-version }}       
+      - name: Setup and run tests
         continue-on-error: true
-        run: bash .github/check-failed-tests.sh
+        working-directory: ./codeceptJS
+        run: |
+          npm i
+          bash .github/check-failed-tests.sh
         env:
           TESTOMATIO: "${{ secrets.TESTOMATIO }}"
           TESTOMATIO_URL: "${{ secrets.TESTOMATIO_URL }}"
