@@ -26,7 +26,7 @@ jobs:
         working-directory: ./codeceptJS
         run: |
           npm i
-          bash .github/check-failed-tests.sh
+          bash ./run-tests-and-check-results.sh
         env:
           TESTOMATIO: "${{ secrets.TESTOMATIO }}"
           TESTOMATIO_URL: "${{ secrets.TESTOMATIO_URL }}"
