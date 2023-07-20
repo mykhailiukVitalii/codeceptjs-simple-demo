@@ -21,12 +21,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}       
-      - name: Setup and run tests
+      - name: Setup installation
+        working-directory: ./codeceptJS
+        run: npm i
+      - name: Run tests
+        id: test-incorrect
         continue-on-error: true
         working-directory: ./codeceptJS
-        run: |
-          npm i
-          bash ./run-tests-and-check-results.sh
+        run: bash run-tests-and-check-results.sh
         env:
           TESTOMATIO: "${{ secrets.TESTOMATIO }}"
           TESTOMATIO_URL: "${{ secrets.TESTOMATIO_URL }}"
