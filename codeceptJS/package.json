@@ -9,7 +9,7 @@
   "author": "kaflan, davert",
   "license": "ISC",
   "dependencies": {
-    "@testomatio/reporter": "^1.0.0",
+    "@testomatio/reporter": "/home/vitalii/tomato-testreporter/reporter",
     "axios": "^0.19.2",
     "dotenv": "^8.6.0",
     "playwright": "^1.23.0"
