@@ -5,7 +5,7 @@ name: CodeceptJS example reporting results
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/15 * * * *"
 
 jobs:
   reporting:
@@ -30,7 +30,7 @@ jobs:
       - name: Run tests
         id: test-incorrect
         continue-on-error: true
-        run: npx codeceptjs run
+        run: bash run-tests-and-check-results.sh
         env:
           TESTOMATIO: "${{ secrets.TESTOMATIO }}"
           TESTOMATIO_URL: "${{ secrets.TESTOMATIO_URL }}"

@@ -36,7 +36,7 @@ exports.config = {
   plugins: {
     testomatio: {
       enabled: true,
-      require: '/home/vitalii/tomato-testreporter/reporter/lib/adapter/codecept.js',
+      require: '@testomatio/reporter/lib/adapter/codecept',
       apiKey:  process.env.TESTOMATIO,
     },
     screenshotOnFail: {
