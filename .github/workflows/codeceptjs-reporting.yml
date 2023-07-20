@@ -5,12 +5,12 @@ name: CodeceptJS example reporting results
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/30 * * * *"
 
 jobs:
   reporting:
     runs-on: ubuntu-latest
-    
+
     defaults:
       run:
         working-directory: ./codeceptJS
